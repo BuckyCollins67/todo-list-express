@@ -5,6 +5,16 @@ const PORT = 2121
 require('dotenv').config()
 
 
+//from the slides  
+
+// mkdir api-project
+// cd api-project
+// npm init 
+// npm install express --save
+// npm install mongodb --save
+// npm install ejs --save
+// npm install dotenv --save
+
 let db,
     dbConnectionStr = process.env.DB_STRING,
     dbName = 'todo'
