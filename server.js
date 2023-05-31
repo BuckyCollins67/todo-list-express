@@ -64,7 +64,7 @@ app.put('/markComplete', (request, response) => {
         upsert: false
     })
     .then(result => {
-        console.log('Marked Complete')
+        console.log('Marked Complete This shouldn\'t run if you clicked the trashcan.')
         response.json('Marked Complete')
     })
     .catch(error => console.error(error))
@@ -81,8 +81,8 @@ app.put('/markUnComplete', (request, response) => {
         upsert: false
     })
     .then(result => {
-        console.log('Marked Complete')
-        response.json('Marked Complete')
+        console.log('Marked Uncomplete')
+        response.json('Marked Uncomplete')
     })
     .catch(error => console.error(error))
 

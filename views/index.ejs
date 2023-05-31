@@ -1,47 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Todo List: </h1>
-    <ul class="todoItems">
-    <% for(let i=0; i < items.length; i++) {%>
-        <li class="item">
-            <% if(items[i].completed === true) {%>
-                <span class='completed'><%= items[i].thing %></span>
-            <% }else{ %>
-                <span><%= items[i].thing %></span>
+<!DOCTYPE html>  <!--Telling the browser what type of document will be shown-->
+<html lang="en">  <!--Startying the HTML tag and saying that the language is English-->
+<head>  <!--starting the head tag to stoer our metadata-->
+    <meta charset="UTF-8">  <!--encoding type for the characters-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">  <!--Sets appropriate compatibility for Microsoft browsers-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!--set the width of the viewport equal to the viewing area available-->
+    <title>Todo List</title>  <!--gives us the browser tab text-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">  <!--This is the font awesome thing!-->
+    <link rel="stylesheet" href="css/style.css">  <!--This links to our css sheet!-->
+</head>  <!--closes head tag-->
+
+<body>  <!--Main section for content displayed-->
+
+    <h1>Todo List:</h1>  <!--This is the big red header-->
+
+    <ul class="todoItems">  <!--This starts our (unordered) list, and gives it a class to be referenced in css, and our JS-->
+
+    <% for(let i=0; i < items.length; i++) {%>  <!--Use EJS to start a for loop.-->
+        <li class="item"> <!--This is a list item.  Class of "item"-->
+            <% if(items[i].completed === true) {%>  <!--Use EJS to make an if statement, if the item is completed then...(remember, this is in mongodb)-->
+                <span class='completed'><%= items[i].thing %></span> <!--...then give the item the "completed" class-->
+            <% }else{ %> <!--else...-->
+                <span><%= items[i].thing %></span> <!--Just put the thing (no class)-->
             <% } %>    
-            <span class='fa fa-trash'></span>
+
+            <span class='fa fa-trash'></span>  <!--This is an empty span that is meant for that trash can icon.  FA stands for font awesome-->
         </li>
-    <% } %>
-    </ul>
+    <% } %>  <!--EJS to close the else statement-->
 
-    <h2>Left to do: <%= left %></h2>
+    </ul>  <!--Ending our Unordered list-->
 
-    <h2>Add A Todo:</h2>
+    <h2>Left to do: <%= left %></h2> <!--EJS to count what items are left to complete-->
 
-    <form action="/addTodo" method="POST">
-        <input type="text" placeholder="Thing To Do" name="todoItem">
-        <input type="submit">
-    </form>
+    <h2>Add A Todo:</h2>  <!--Header-->
+
+    <form action="/addTodo" method="POST"> <!--Creating a form with a POST method that goes to the /addTodo route-->
+        <input type="text" placeholder="Thing To Do" name="todoItem"><!--creates the input field-->
+        <input type="submit"><!--creates the submit button.-->
+    </form>  <!--Closes form tag-->
     
 
-    <script src='js/main.js'></script>
-</body>
-</html>
+    <script src='js/main.js'></script><!--Link to our js file.-->
+</body><!--close body-->
+</html><!--close html-->
